@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Wilderness Story</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <img src="img/explore.png" alt="Description of image" -->
+</head>
+<body>
+        
+
+    <div class="story-container">
+        <h1>Wilderness Adventure Story</h1>
+        <p id="story-text">You wake up in a mysterious forest. What will you do next?</p>
+
+        <div id="choices">
+            <button onclick="makeChoice('explore')">Explore the forest</button>
+            <button onclick="makeChoice('rest')">Rest under a tree</button>
+            <button onclick="makeChoice('search')">Search for a way out</button>
+        </div>
+
+        <div id="image-container">
+            <img id="story-image" src="forest.jpg" alt="Mysterious Forest">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
