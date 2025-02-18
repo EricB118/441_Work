@@ -1,0 +1,5 @@
+# Mysterious Story Project
+
+With this assignment I definitely need to work more with functions and try different ways
+of working with them. I used Chatgpt to help me with this project and it actually did 
+the functions better than I would have done them, so it was interesting to see how it did it.

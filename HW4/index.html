@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysterious Story</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        #story {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        #restartButton {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #restartButton:hover {
+            background-color: #45a049;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .choiceButton {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .choiceButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Mysterious Story</h1>
+<div id="story">
+    <p>Welcome to the mysterious story! Please enter your name:</p>
+    <input type="text" id="userName" placeholder="Enter your name">
+    <button class="choiceButton" onclick="startStory()">Start Story</button>
+</div>
+
+<div id="choices" style="display:none;">
+    <p id="storyText"></p>
+    <div id="choiceButtons"></div>
+</div>
+
+<button id="restartButton" style="display:none;" onclick="restartStory()">Restart Story</button>
+
+<script>
+    let userName = '';
+    let currentStep = 0;
+
+    
+    function startStory() {
+        userName = document.getElementById('userName').value.trim();
+        if (userName === '') {
+            alert("Please enter your name to begin!");
+            return;
+        }
+
+        
+        document.getElementById('story').style.display = 'none';
+        document.getElementById('choices').style.display = 'block';
+        document.getElementById('restartButton').style.display = 'block';
+
+        currentStep = 1; 
+        showStoryStep();
+    }
+
+    
+    function showStoryStep() {
+        let storyText = '';
+        let choicesHtml = '';
+
+        if (currentStep === 1) {
+            storyText = `Hello, ${userName}! You find yourself standing at a crossroads in a mysterious forest. Do you want to go left or right?`;
+            choicesHtml = `
+                <button class="choiceButton" onclick="makeChoice(2)">Go Left</button>
+                <button class="choiceButton" onclick="makeChoice(3)">Go Right</button>
+            `;
+        } else if (currentStep === 2) {
+            storyText = `You chose to go left and find a peaceful clearing. Suddenly, a wild animal approaches! Do you want to fight or run?`;
+            choicesHtml = `
+                <button class="choiceButton" onclick="makeChoice(4)">Fight</button>
+                <button class="choiceButton" onclick="makeChoice(5)">Run</button>
+            `;
+        } else if (currentStep === 3) {
+            storyText = `You chose to go right and discover a hidden cave. It's dark inside, and you feel a chill. Do you want to explore further or leave?`;
+            choicesHtml = `
+                <button class="choiceButton" onclick="makeChoice(6)">Explore</button>
+                <button class="choiceButton" onclick="makeChoice(7)">Leave</button>
+            `;
+        } else if (currentStep === 4) {
+            storyText = `You fought bravely and defeated the wild animal! However, you are injured. Do you want to rest or keep moving?`;
+            choicesHtml = `
+                <button class="choiceButton" onclick="makeChoice(8)">Rest</button>
+                <button class="choiceButton" onclick="makeChoice(9)">Keep Moving</button>
+            `;
+        } else if (currentStep === 5) {
+            storyText = `You ran away successfully! You find yourself on the edge of the forest. Congratulations, you've escaped safely!`;
+            choicesHtml = '';
+        } else if (currentStep === 6) {
+            storyText = `You explored the cave but found it to be a dead end. There's a treasure chest, but it's locked. Do you want to try to open it or leave?`;
+            choicesHtml = `
+                <button class="choiceButton" onclick="makeChoice(10)">Try to Open the Chest</button>
+                <button class="choiceButton" onclick="makeChoice(7)">Leave the Cave</button>
+            `;
+        } else if (currentStep === 7) {
+            storyText = `You left the cave and found your way back to the forest. The journey continues...`;
+            choicesHtml = '';
+        } else if (currentStep === 8) {
+            storyText = `You decided to rest, and your wounds heal. After a while, you continue your journey and find a village! You are safe now.`;
+            choicesHtml = '';
+        } else if (currentStep === 9) {
+            storyText = `You kept moving, and although you were exhausted, you made it through the forest and to safety. Congratulations!`;
+            choicesHtml = '';
+        } else if (currentStep === 10) {
+            storyText = `You tried to open the chest and managed to unlock it! Inside, you found a treasure! You are rich now!`;
+            choicesHtml = '';
+        }
+
+        document.getElementById('storyText').textContent = storyText;
+        document.getElementById('choiceButtons').innerHTML = choicesHtml;
+    }
+
+    
+    function makeChoice(nextStep) {
+        currentStep = nextStep;
+        showStoryStep();
+    }
+
+    
+    function restartStory() {
+        document.getElementById('story').style.display = 'block';
+        document.getElementById('choices').style.display = 'none';
+        document.getElementById('restartButton').style.display = 'none';
+        document.getElementById('userName').value = '';
+    }
+</script>
+
+</body>
+</html>
