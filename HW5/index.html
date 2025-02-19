@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Playing Cards Array Game</title>
+    <style>
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(4, 150px);
+            grid-template-rows: repeat(3, 150px);
+            gap: 10px;
+            justify-content: center;
+            margin: 20px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click on a blank image to reveal the real image!</h1>
+    <div class="image-container" id="image-grid"></div>
+
+    <script>
+        
+        const blankImage = 'https://via.placeholder.com/150/cccccc/FFFFFF?text=Blank';
+        
+        const actualImages = [
+            'img/card1.jpg',  
+            'img/card2.jpg',
+            'img/card3.jpg',
+            'img/card4.jpg',
+            'img/card5.jpg',
+            'img/card6.jpg',
+            'img/card7.jpg',
+            'img/card8.jpg',
+            'img/card9.jpg',
+            'img/card10.jpg',
+            'img/card11.jpg',
+            'img/card12.jpg',
+        ];
+
+        
+        function shuffleImages(array) {
+            let shuffledArray = array.slice();
+            for (let i = shuffledArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+            }
+            return shuffledArray;
+        }
+
+        
+        const blankArray = Array(12).fill(blankImage);
+        const randomizedImages = shuffleImages(actualImages);
+
+        
+        const finalArray = blankArray.map((img, index) => {
+            if (Math.random() > 0.5) {
+                return randomizedImages[index];
+            } else {
+                return img;
+            }
+        });
+
+        
+        function createImageGrid() {
+            const grid = document.getElementById('image-grid');
+            for (let i = 0; i < 12; i++) {
+                const img = document.createElement('img');
+                img.src = finalArray[i];
+                img.alt = 'Click to reveal image';
+                img.addEventListener('click', function () {
+                    if (img.src === blankImage) {
+                        img.src = randomizedImages[i];
+                    }
+                });
+                grid.appendChild(img);
+            }
+        }
+
+        
+        createImageGrid();
+    </script>
+</body>
+</html>

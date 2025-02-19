@@ -1,0 +1,4 @@
+ When I created this webpage it was hard to do by myself. It's been awhile since I used arrays, but after
+I seen how Chatgpt did it and I looked at the code some of it came back to me. I do appreciate being able
+to use A.I. as a learning aid because it does help especially with coding and its efficient. Learning it
+on your own and then using AI as a learning aid definitely helps with coding more efficiently.
