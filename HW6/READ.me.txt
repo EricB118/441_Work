@@ -1,0 +1,3 @@
+ When I created this webpage it was hard to do by myself. This is all Chatgpt, but I was
+ struggling with the code on this one alot. So I am going to go trough the code and see
+ what I am having a problem with. Definitely need more practice with arrays.
