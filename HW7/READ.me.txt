@@ -1,0 +1,6 @@
+# VeiwMaster Project
+
+With this assignment I liked working with a class with multiple objects. It really shows what can
+be done with classes. As always I need more practice at this, but ultimately this is a good thing.
+I would like to explore this more in the future.
+
