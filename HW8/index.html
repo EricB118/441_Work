@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Art</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #222;
+        }
+        .image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            width: 500px; 
+            height: 400px; 
+        }
+        .text {
+            position: absolute;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        .shape {
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <img src="img/water.jpg" class="image" id="image1" alt="Image 1">
+    <img src="img/door.jpg" class="image" id="image2" alt="Image 2">
+    <img src="img/seedling.jpg" class="image" id="image3" alt="Image 3">
+
+    
+    <div class="text" id="text1">"The only limit is your imagination."</div>
+    <div class="text" id="text2">"Dream big, work hard."</div>
+    <div class="text" id="text3">"Be the change you want to see."</div>
+
+    
+    <div class="shape" id="shape1" style="width: 100px; height: 100px; background-color: red; border-radius: 50%;"></div>
+    <div class="shape" id="shape2" style="width: 150px; height: 150px; background-color: blue;"></div>
+    <div class="shape" id="shape3" style="width: 200px; height: 100px; background-color: yellow; border-radius: 10px;"></div>
+
+    <script>
+        $(document).ready(function() {
+            
+            let images = ['#image1', '#image2', '#image3'];
+            let texts = ['#text1', '#text2', '#text3'];
+            let shapes = ['#shape1', '#shape2', '#shape3'];
+
+            let imageIndex = 0;
+            let textIndex = 0;
+            let shapeIndex = 0;
+
+            
+            function switchImage() {
+                $(images[imageIndex]).fadeOut(1000, function() {
+                    imageIndex = (imageIndex + 1) % images.length;
+                    $(images[imageIndex]).fadeIn(1000);
+                });
+            }
+
+            
+            function moveImage() {
+                $(images[imageIndex]).animate({
+                    top: Math.random() * $(window).height(),
+                    left: Math.random() * $(window).width()
+                }, 2000);
+            }
+
+            
+            function switchText() {
+                $(texts[textIndex]).fadeOut(1000, function() {
+                    textIndex = (textIndex + 1) % texts.length;
+                    $(texts[textIndex]).fadeIn(1000);
+                });
+            }
+
+            
+            function moveText() {
+                $(texts[textIndex]).animate({
+                    top: Math.random() * $(window).height(),
+                    left: Math.random() * $(window).width()
+                }, 2000);
+            }
+
+            
+            function switchShape() {
+                $(shapes[shapeIndex]).fadeOut(1000, function() {
+                    shapeIndex = (shapeIndex + 1) % shapes.length;
+                    $(shapes[shapeIndex]).fadeIn(1000);
+                });
+            }
+
+            
+            function moveShape() {
+                $(shapes[shapeIndex]).animate({
+                    top: Math.random() * $(window).height(),
+                    left: Math.random() * $(window).width()
+                }, 2000);
+            }
+
+            
+            $(images[imageIndex]).fadeIn(1000);
+            $(texts[textIndex]).fadeIn(1000);
+            $(shapes[shapeIndex]).fadeIn(1000);
+
+            
+            setInterval(function() {
+                switchImage();
+                moveImage();
+                switchText();
+                moveText();
+                switchShape();
+                moveShape();
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
