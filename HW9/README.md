@@ -1,0 +1,1 @@
+With this project I used country, the capital, population, and area as information displayed.
