@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+#gameCanvas {
+    border: 5px solid rgb(59, 237, 201);
+    display: block;
+    margin: 0 auto;
+}
+
+canvas {
+    background-color: #f0f0f0;
+}
