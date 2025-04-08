@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "x": 100,
+        "y": 150,
+        "width": 50,
+        "height": 50,
+        "color": "red"
+    },
+    {
+        "id": 2,
+        "x": 300,
+        "y": 200,
+        "width": 50,
+        "height": 50,
+        "color": "blue"
+    },
+    {
+        "id": 3,
+        "x": 500,
+        "y": 100,
+        "width": 50,
+        "height": 50,
+        "color": "green"
+    },
+    {
+        "id": 4,
+        "x": 200,
+        "y": 350,
+        "width": 50,
+        "height": 50,
+        "color": "yellow"
+    },
+    {
+        "id": 5,
+        "x": 400,
+        "y": 400,
+        "width": 50,
+        "height": 50,
+        "color": "purple"
+    }
+]

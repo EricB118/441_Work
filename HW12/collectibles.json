@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "x": 150,
+        "y": 150,
+        "radius": 20,
+        "color": "gold"
+    },
+    {
+        "id": 2,
+        "x": 350,
+        "y": 250,
+        "radius": 20,
+        "color": "silver"
+    },
+    {
+        "id": 3,
+        "x": 550,
+        "y": 150,
+        "radius": 20,
+        "color": "bronze"
+    }
+]
